@@ -4,6 +4,4 @@ console.log(LOAD_USERS_SUCCESS);
 
 const loadUsersSuccess = (users)=> ({ type: LOAD_USERS_SUCCESS, users: users });
 
-export const loadUsers = ()=> (
-    ()=> {}
-);
+export const loadUsers = ()=> dispatch => dispatch(loadUsersSuccess([ 1, 2, 3]));  
