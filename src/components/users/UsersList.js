@@ -1,15 +1,21 @@
 import React from 'react';
-import { connect } from 'react-redux';
 
-const Users = ({ users, foo })=> (
-    <div className='well'>
-    Users { users.length } { foo }
+import UserRow from './UserRow';
+
+const UsersList = ({ users})=>(
+    <div className='container'>
+      <table className='table'>
+        <thead>
+          <tr>
+          <th>Id</th>
+          <th>Name</th>
+          </tr>
+        </thead>
+        <tbody>
+          { users.map( (user)=> <UserRow user={user} key={ user.id } />) }
+        </tbody>
+      </table>
     </div>
 );
 
-const mapStateToProps = ({ users }) => (
-    { users, foo: 'bar' }
-);
-const UsersContainer = connect(mapStateToProps)(Users);
-
-export default UsersContainer;
+export default UsersList;
