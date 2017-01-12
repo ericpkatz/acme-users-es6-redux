@@ -9,7 +9,7 @@ const Layout = ({ children, router })=> {
         <li className={ path === '/' ? 'active' : ''}>
           <Link to='/'>Home</Link>
         </li>
-        <li className={ path === '/users' ? 'active' : ''}>
+        <li className={ path.indexOf('/users') !== -1 ? 'active' : ''}>
           <Link to='/users'>Users</Link>
         </li>
       </ul>

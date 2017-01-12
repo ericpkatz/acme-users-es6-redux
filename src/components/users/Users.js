@@ -2,11 +2,15 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import UsersList from './UsersList';
+import CreateUserForm from './CreateUserForm';
 
 const Users = ({ users, foo })=> (
-    <div className='well'>
-    Users { users.length } { foo }
-    <UsersList users={ users } />
+    <div className='container'>
+      <CreateUserForm />
+      <div className='well'>
+      Users { users.length } { foo }
+      <UsersList users={ users } />
+      </div>
     </div>
 );
 
