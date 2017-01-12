@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { createUserSuccess } from '../../actions/UsersActions';
+import { createUser } from '../../actions/UsersActions';
 
 class CreateUserForm extends Component{
   constructor({ onSave }){
@@ -39,7 +39,7 @@ const mapStateToProps = ()=> {
 
 const mapDispatchToProps = (dispatch)=> {
   return {
-    onSave: (user)=> dispatch(createUserSuccess(user)) 
+    onSave: (user)=> dispatch(createUser(user)) 
   }
 }
 
