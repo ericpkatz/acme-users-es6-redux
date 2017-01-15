@@ -3,6 +3,13 @@ import { connect } from 'react-redux';
 import _ from 'lodash';
 import { deleteUser } from '../../actions/usersActions';
 
+const UserDetail = ({ user, onDelete })=> (
+  <div className='container'>
+    <h2>{ user.name }</h2>
+    <button className='btn btn-danger' onClick={ onDelete }>Remove</button>
+  </div>
+);
+
 class User extends React.Component{
   constructor({ router, user, onDelete }){
     super();
@@ -15,14 +22,12 @@ class User extends React.Component{
     this.router.push('/users');
   }
   render(){
+    //TODO - use a presentation component
+    //<UserDetail user={ this.user } onDelete={this.onDelete} router={this.router} />
     if(!this.user)
       return <div/>;
     return (
-        <div className='container'>
-          <h2>{ this.user.name }</h2>
-          <button className='btn btn-danger' onClick={ this.delete.bind(this) }>Remove</button>
-        </div>
-        
+        <UserDetail user={ this.user } onDelete={this.delete.bind(this) } />
     );
   }
   componentWillReceiveProps(nextProps){
